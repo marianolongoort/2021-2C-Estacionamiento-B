@@ -33,5 +33,10 @@ namespace EstacionamientoMVC.Models
 
         public List<PersonaVehiculo> VehiculosAutorizados { get; set; }
 
+        public string NombreCompleto { get {
+                return $" {Apellido.ToUpper()}, {Nombre}";
+            }
+        }
+
     }
 }

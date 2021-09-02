@@ -20,7 +20,13 @@ namespace EstacionamientoMVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Persona pers1 = new Persona() {
+                Nombre = "Pedro",
+                Apellido = "Picapiedra",
+                Email = "pedro@picapiedra.com"
+            };
+
+            return View(pers1);
         }
 
         public IActionResult Privacy()
