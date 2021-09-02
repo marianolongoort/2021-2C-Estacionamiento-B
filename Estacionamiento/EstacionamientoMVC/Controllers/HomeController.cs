@@ -20,7 +20,15 @@ namespace EstacionamientoMVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Persona pers1 = new Persona() {
+                Nombre = "Pedro",
+                Apellido = "Picapiedra",
+                Email = "pedro@picapiedra.com"
+            }
+            ;
+
+
+            return View(pers1);
         }
 
         public IActionResult Privacy()
@@ -32,6 +40,11 @@ namespace EstacionamientoMVC.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private void Saludar()
+        {
+            //algo
         }
     }
 }

@@ -1,8 +1,35 @@
-﻿@{
+﻿@model Persona;
+
+@{
     ViewData["Title"] = "Home Page";
+    var unaVariable = "pepe";
 }
+
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Aprenda <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+<div>
+    <p>El valor de la variable es @unaVariable</p>
+</div>
+
+<div>
+    <ul>
+        <li>
+            Nombre completo: @Model.NombreCompleto
+        </li>
+
+        <li>
+            Email: @Model.Email
+        </li>
+    </ul>
+
+</div>
+
+@{ 
+    
+}
