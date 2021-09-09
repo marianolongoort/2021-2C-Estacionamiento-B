@@ -31,7 +31,12 @@ namespace EstacionamientoMVC.Models
         [Display(Name = Alias.Email)]
         public string Email { get; set; }
 
-        public List<PersonaVehiculo> VehiculosAutorizados { get; set; }
+        //public List<PersonaVehiculo> VehiculosAutorizados { get; set; }
+
+        public Direccion Direccion { get; set; }
+
+        public List<Telefono> Telefonos { get; set; }
+
 
         public string NombreCompleto { get {
                 return $" {Apellido.ToUpper()}, {Nombre}";

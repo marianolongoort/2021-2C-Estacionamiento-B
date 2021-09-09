@@ -1,34 +1,43 @@
-﻿@model Persona;
+﻿@model IEnumerable<Persona>
 
 @{
     ViewData["Title"] = "Home Page";
     var unaVariable = "pepe";
+    Persona supervisor = ViewBag.Supervisor;
 }
 
 
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Aprenda <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="card">
+    <div class="card-header">
+        Supervisor
+    </div>
+    <div class="card-body">
+        <div>Nombre: @supervisor.Nombre</div>
+        <div>Apellido: @supervisor.Apellido</div>
+        <div>Quejas: @supervisor.Email</div>
+    </div>
 </div>
 
 
-<div>
-    <p>El valor de la variable es @unaVariable</p>
-</div>
-
-<div>
-    <ul>
-        <li>
-            Nombre completo: @Model.NombreCompleto
-        </li>
-
-        <li>
-            Email: @Model.Email
-        </li>
-    </ul>
-
-</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Persona persona in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(Model => persona.Nombre)</td>
+            <td>@Html.DisplayFor(Model => persona.Apellido)</td>
+            <td>@Html.DisplayFor(Model => persona.Email)</td>            
+        </tr>
+        }
+    </tbody>    
+</table>
 
 @{ 
     

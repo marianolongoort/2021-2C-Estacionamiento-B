@@ -26,11 +26,54 @@ namespace EstacionamientoMVC.Controllers
                 Email = "pedro@picapiedra.com"
             };
 
-            return View(pers1);
+            List<Persona> lista        = new List<Persona>();
+            IEnumerable<Persona> ie = new List<Persona>();
+            ICollection<Persona> ic = new List<Persona>();
+            IList<Persona> il       = new List<Persona>();
+            
+            il.Add(pers1);
+            //ie.add
+            //ic.Add(pers1);
+            
+            //il.Add(pers1);
+            il.Add(new Persona() { 
+                Nombre="Pablo",
+                Apellido="Marmol",
+                Email ="pablo@marmol.com"
+            } );
+
+            Persona pers3 = new Persona()
+            {
+                Nombre = "Vilma",
+                Apellido = "Picapiedra",
+                Email = "vilma@picapiedra.com"
+            };
+            il.Add(pers3);
+
+            Persona supervisor = new Persona()
+            {
+                Nombre = "Betty",
+                Apellido = "Marmol",
+                Email = "betty@marmol.com"
+            };
+
+
+            lista.AddRange(il);
+
+            ViewBag.Supervisor = supervisor;
+           // ViewBag.Supervisor = "Hola";
+
+            var resultado = ViewBag.Supervisor;
+
+
+
+            return View(lista);     
         }
 
         public IActionResult Privacy()
         {
+            ViewBag.OtraCosa = "asdasdasd"; 
+
             return View();
         }
 

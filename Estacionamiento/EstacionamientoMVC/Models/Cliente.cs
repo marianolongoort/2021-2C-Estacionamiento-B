@@ -12,8 +12,8 @@ namespace EstacionamientoMVC.Models
         [Range(Restrictions.FloorCUIL, Restrictions.CeilCUIL, ErrorMessage = ErrMsgs.RangoMinMax)]
         public int CUIT { get; set; }
 
-        public Direccion Direccion { get; set; }
+       
 
-        public List<Telefono> Telefonos { get; set; }  
+        
     }
 }
