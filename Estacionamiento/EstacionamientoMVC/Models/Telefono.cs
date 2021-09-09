@@ -15,7 +15,8 @@ namespace EstacionamientoMVC.Models
         public int CodArea { get; set; }
         
         [Required(ErrorMessage = ErrMsgs.Requerido)]
-        public int Numero { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public string Numero { get; set; }
 
         public bool Principal { get; set; }
 
