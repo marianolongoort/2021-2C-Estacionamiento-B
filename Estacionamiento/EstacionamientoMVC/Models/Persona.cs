@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace EstacionamientoMVC.Models
 {
     public class Persona
-    {
+    {        
         public int Id { get; set; }
 
         [Required(ErrorMessage =ErrMsgs.Requerido)]
@@ -37,6 +37,7 @@ namespace EstacionamientoMVC.Models
 
         public List<Telefono> Telefonos { get; set; }
 
+        public string Pasaporte { get; set; }
 
         public string NombreCompleto { get {
                 return $" {Apellido.ToUpper()}, {Nombre}";

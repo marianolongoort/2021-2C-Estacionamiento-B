@@ -22,7 +22,7 @@ namespace EstacionamientoMVC.Controllers
         // GET: Telefonos
         public async Task<IActionResult> Index()
         {
-            var estacionamientoContext = _context.Telefono.Include(t => t.Persona);
+            var estacionamientoContext = _context.Telefonos.Include(t => t.Persona);
             return View(await estacionamientoContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace EstacionamientoMVC.Controllers
                 return NotFound();
             }
 
-            var telefono = await _context.Telefono
+            var telefono = await _context.Telefonos
                 .Include(t => t.Persona)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (telefono == null)
@@ -78,7 +78,7 @@ namespace EstacionamientoMVC.Controllers
                 return NotFound();
             }
 
-            var telefono = await _context.Telefono.FindAsync(id);
+            var telefono = await _context.Telefonos.FindAsync(id);
             if (telefono == null)
             {
                 return NotFound();
@@ -131,7 +131,7 @@ namespace EstacionamientoMVC.Controllers
                 return NotFound();
             }
 
-            var telefono = await _context.Telefono
+            var telefono = await _context.Telefonos
                 .Include(t => t.Persona)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (telefono == null)
@@ -147,15 +147,15 @@ namespace EstacionamientoMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var telefono = await _context.Telefono.FindAsync(id);
-            _context.Telefono.Remove(telefono);
+            var telefono = await _context.Telefonos.FindAsync(id);
+            _context.Telefonos.Remove(telefono);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TelefonoExists(int id)
         {
-            return _context.Telefono.Any(e => e.Id == id);
+            return _context.Telefonos.Any(e => e.Id == id);
         }
     }
 }

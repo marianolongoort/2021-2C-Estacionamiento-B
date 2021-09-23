@@ -7,6 +7,7 @@
             <th>@Html.DisplayNameFor(model => model.Nombre)</th>
             <th>@Html.DisplayNameFor(model => model.Apellido)</th>
             <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
                 <td>@Html.DisplayFor(Model => persona.Nombre)</td>
                 <td>@Html.DisplayFor(Model => persona.Apellido)</td>
                 <td>@Html.DisplayFor(Model => persona.Email)</td>
+                <td><a asp-action="detalles" asp-route-id="@persona.Id">Detalles</a></td>
             </tr>
         }
     </tbody>

@@ -21,7 +21,7 @@ namespace EstacionamientoMVC.Data
 
         public DbSet<Persona> Personas { get; set; }
         public DbSet<Direccion> Direcciones { get; set; }
-        public DbSet<EstacionamientoMVC.Models.Telefono> Telefono { get; set; }
+        public DbSet<Telefono> Telefonos { get; set; }
 
 
     }
