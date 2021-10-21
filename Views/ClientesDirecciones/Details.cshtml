@@ -1,10 +1,10 @@
 ﻿@model EstacionamientoMVC.ViewModels.ClienteDireccion
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = @AliasGUI.Details;
 }
 
-<h1>Details</h1>
+
 
 <div>
     <h4>ClienteDireccion</h4>
@@ -73,6 +73,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@AliasGUI.Details</a> |
+    <a asp-action="Index">@AliasGUI.BackToList</a>
 </div>
