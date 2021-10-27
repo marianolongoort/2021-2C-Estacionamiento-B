@@ -60,12 +60,16 @@ namespace EstacionamientoMVC.Controllers
         [Authorize(Roles = "Empleado,Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CUIT,Id,Nombre,Apellido,DNI,Email")] Cliente cliente)
+        public async Task<IActionResult> Create(bool crearDireccion,[Bind("CUIT,Id,Nombre,Apellido,DNI,Email")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
                 _garageContext.Add(cliente);
                 await _garageContext.SaveChangesAsync();
+                if (crearDireccion) {
+                    return RedirectToAction("Create", "Direcciones", new { id = cliente.Id });
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);
@@ -101,7 +105,7 @@ namespace EstacionamientoMVC.Controllers
                 return NotFound();
             }
 
-            if(cliente.Id != Int32.Parse(User.Claims.First().Value))
+            if (id != Int32.Parse(User.Claims.First().Value))
             {
                 return RedirectToAction("AccesoDenegado", "Account");
             }
